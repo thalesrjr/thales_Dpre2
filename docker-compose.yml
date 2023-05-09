@@ -1,60 +1,28 @@
 version: '2'
 services:
-  app:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postrgres
+    ports:
+      - "5432:5432" 
+  web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/usr/src/Desempregando_DPre
-    expose:
-      - "3000"
+      - .:/Desempregando_DPre
     ports:
-      - "3000:3000"
-    stdin_open: true
-    tty: true
-    env_file:
-      - .env.development
-    environment:
-      - RAILS_ENV: development
+      - "3001:3000"
     depends_on:
       - db
-      - redis
     links:
       - mailcatcher
-  db:
-    image: postgres:13.2-alpine
-    volumes:
-      - postgres:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_USER: postgres
-      - POSTGRES_PASSWORD: postgres
-    ports:
-      - "5432:5432"
   mailcatcher:
     restart: on-failure:10
     image: dockage/mailcatcher:0.7.1
     ports:
       - "1080:1080"
       - "1025:1025"
-  redis:
-    image: redis:6.0.12-alpine
-    command: redis-server
-    volumes:
-      - redis:/data
-    ports:
-      - "6379:6379"
-    logging:
-      driver: none
-  sidekiq:
-    image: Desempregando_DPre
-    depends_on:
-      - app
-      - db
-      - redis
-    command: dotenv -f ".env.development" bundle exec sidekiq -C config/sidekiq.yml
-    env_file:
-      - .env_development
-    valumes:
-      - .:/usr/src/Desempregando_DPre
-volumes:
-  postgres
-  redis
