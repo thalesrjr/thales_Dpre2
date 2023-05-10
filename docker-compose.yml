@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 services:
   db:
     image: postgres
@@ -6,23 +6,23 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postrgres
+      POSTGRES_PASSWORD: eps90013
     ports:
       - "5432:5432" 
-  web:
+  app:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/Desempregando_DPre
     ports:
-      - "3001:3000"
+      - "3003:3000"
     depends_on:
       - db
-  #   links:
-  #     - mailcatcher
-  # mailcatcher:
-  #   restart: on-failure:10
-  #   image: dockage/mailcatcher:0.7.1
-  #   ports:
-  #     - "1080:1080"
-  #     - "1025:1025"
+    links:
+      - mailcatcher
+  mailcatcher:
+    restart: on-failure:10
+    image: dockage/mailcatcher:0.7.1
+    ports:
+      - "1080:1080"
+      - "1025:1025"
