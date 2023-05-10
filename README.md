@@ -1,6 +1,6 @@
 ## Executem os comando
 
-docker-compose run --no-deps app rails new . --force --database=postgresql --webpacker
+### docker-compose run --no-deps app rails new . --force --database=postgresql --webpacker
 
 #ERROR
 Fetching gem metadata from https://rubygems.org/.
@@ -38,3 +38,6 @@ docker-compose up -d
 ## Criar o banco de dados
 
 $ docker-compose run web rails db:create
+
+## Se necessário instalar o yarn
+https://classic.yarnpkg.com/en/docs/install/#debian-stable
