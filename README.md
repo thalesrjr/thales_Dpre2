@@ -25,7 +25,7 @@ docker-compose run app bundle update
 
 $ sudo chown -R $USER:$USER .
 
-$ docker -ompose build
+$ docker-compose up --build
 
 ## Configura Database
 
