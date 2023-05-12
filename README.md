@@ -25,7 +25,7 @@ docker-compose run app bundle update
 
 $ sudo chown -R $USER:$USER .
 
-$ docker-compose up --build
+$ sudo docker-compose up --build
 
 ## Configura Database
 
@@ -37,7 +37,7 @@ docker-compose up -d
 
 ## Criar o banco de dados
 
-$ docker-compose run web rails db:create
+$ docker-compose run app rails db:create
 
 ## Se necessário instalar o yarn
 https://classic.yarnpkg.com/en/docs/install/#debian-stable
