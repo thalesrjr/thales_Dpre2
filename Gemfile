@@ -14,6 +14,13 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'bundler', '~> 2.2', '>= 2.2.33'
 
+#CSS
+gem 'bootstrap'
+#Java Script
+gem 'jquery-rails'
+
+gem "mini_portile2"
+
 # Variáveis de ambiente
 gem 'figaro'
 # Formulario simples

@@ -41,3 +41,11 @@ $ docker-compose run app rails db:create
 
 ## Se necessário instalar o yarn
 https://classic.yarnpkg.com/en/docs/install/#debian-stable
+
+## Comando pra rodar após incluir as Gems caso de errado e solicite alguma depedência
+
+sudo docker-compose run app bundle exec figaro install
+
+## Atualização da Gem
+
+docker-compose run app bundle install
