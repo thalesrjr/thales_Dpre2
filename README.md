@@ -49,3 +49,19 @@ sudo docker-compose run app bundle exec figaro install
 ## Atualização da Gem
 
 docker-compose run app bundle install
+
+## Instalando Simple_form
+docker-compose run app rails generate simple_form:install --bootstrap
+
+## Instalando Devise
+docker-compose run app rails generate devise:install
+
+## Instalando e convertendo erb to haml
+
+### Executar primeiro
+docker-compose run app gem install html2haml
+
+docker-compose run app rails generate haml:application_layout convert
+
+### Executar
+docker-compose run app rails haml:erb2haml
