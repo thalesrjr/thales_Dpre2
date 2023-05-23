@@ -9,7 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 import 'bootstrap'
-import 'application.scss'
+import './src/application.scss'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -19,11 +19,21 @@ import 'application.scss'
 // const imagePath = (name) => images(name, true)
 //= require jquery3
 //= require popper
-//= require bootstrap-sprockets
+//= require bootstrap
 
-(() => {
-    'use strict'
-    document.querySelector('#navbarSideCollapse').addEventListener('click', () => {
-      document.querySelector('.offcanvas-collapse').classList.toggle('open')
-    })
-  })()
+$(function (){
+  'use strict'
+
+  $('[data-toggle="offcanvas]').on('click', function(){
+    $('.offcanvas-collapse').toggleClass('open')
+  })
+})
+
+
+// (() => {
+//   'use strict'
+
+//   document.querySelector('#navbarSideCollapse').addEventListener('click', () => {
+//     document.querySelector('.offcanvas-collapse').classList.toggle('open')
+//   })
+// })()

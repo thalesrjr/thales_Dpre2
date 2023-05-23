@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM ruby:3.0
-RUN apt-get update -qq && apt-get install -y nodejs npm postgresql-client
-RUN npm install --global yarn
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+# RUN npm install --global yarn
 WORKDIR /Desempregando_DPre
 COPY Gemfile /Desempregando_DPre/Gemfile
 COPY Gemfile.lock /Desempregando_DPre/Gemfile.lock
