@@ -49,16 +49,20 @@
         %li.nav-item
           %a.nav-link{href: "#"} Profile
         %li.nav-item
-          %a.nav-link{href: "#"} Switch account
-        %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#"} Settings
-          %ul.dropdown-menu
-            %li
-              %a.dropdown-item{href: "#"} Action
-            %li
-              %a.dropdown-item{href: "#"} Another action
-            %li
-              %a.dropdown-item{href: "#"} Something else here
+          %a.nav-link{href: user_session_path} Login/Cadastro
+        %li.nav-item
+          = link_to "Sair", destroy_user_session_path, method: :delete, class: 'dropdown-item'
+        %li.nav-item
+          %a.nav-link.active{"aria-current" => "page", :href => new_position_path, class: 'btn btn-secondary' } Publicar Vaga
+        -# %li.nav-item.dropdown
+        -#   %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#"} Settings
+        -#   %ul.dropdown-menu
+        -#     %li
+        -#       %a.dropdown-item{href: "#"} Action
+        -#     %li
+        -#       %a.dropdown-item{href: "#"} Another action
+        -#     %li
+        -#       %a.dropdown-item{href: "#"} Something else here
       %form.d-flex{role: "search"}
         %input.form-control.me-2{"aria-label" => "Search", placeholder: "Search", type: "search"}/
         %button.btn.btn-outline-success{type: "submit"} Search

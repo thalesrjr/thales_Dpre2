@@ -1,0 +1,45 @@
+.container
+  .row
+    .col-sm-9.col-md-7.col-lg-5.mx-auto
+      .card.border-0.shadow.rounded-3.my-5
+        .card-body.p-4.p-sm-5
+          %h5.card-title.text-center.mb-5.fw-light.fs-5 Sign In
+          %form
+            .form-floating.mb-3
+              %input#floatingInput.form-control{placeholder: "name@example.com", type: "email"}/
+              %label{for: "floatingInput"} Email address
+            .form-floating.mb-3
+              %input#floatingPassword.form-control{placeholder: "Password", type: "password"}/
+              %label{for: "floatingPassword"} Password
+            .form-check.mb-3
+              %input#rememberPasswordCheck.form-check-input{type: "checkbox", value: ""}/
+              %label.form-check-label{for: "rememberPasswordCheck"}
+                Remember password
+            .d-grid
+              %button.btn.btn-primary.btn-login.text-uppercase.fw-bold{type: "submit"}
+                Sign
+                in
+            %hr.my-4/
+            .d-grid.mb-2
+              %button.btn.btn-google.btn-login.text-uppercase.fw-bold{type: "submit"}
+                %i.fab.fa-google.me-2
+                Sign in with Google
+            .d-grid
+              %button.btn.btn-facebook.btn-login.text-uppercase.fw-bold{type: "submit"}
+                %i.fab.fa-facebook-f.me-2
+                Sign in with Facebook
+                
+%h2 Log in
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .form-inputs
+    = f.input :email,                       |
+      required: false,                      |
+      autofocus: true,                      |
+      input_html: { autocomplete: "email" } |
+    = f.input :password,                               |
+      required: false,                                 |
+      input_html: { autocomplete: "current-password" } |
+    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+  .form-actions
+    = f.button :submit, "Log in"
+= render "devise/shared/links"
