@@ -1,33 +1,21 @@
-.container
-  .row
-    .col-sm-9.col-md-7.col-lg-5.mx-auto
-      .card.border-0.shadow.rounded-3.my-5
-        .card-body.p-4.p-sm-5
-          %h5.card-title.text-center.mb-5.fw-light.fs-5 Sign In
-          %form
-            .form-floating.mb-3
-              %input#floatingInput.form-control{placeholder: "name@example.com", type: "email"}/
-              %label{for: "floatingInput"} Email address
-            .form-floating.mb-3
-              %input#floatingPassword.form-control{placeholder: "Password", type: "password"}/
-              %label{for: "floatingPassword"} Password
-            .form-check.mb-3
-              %input#rememberPasswordCheck.form-check-input{type: "checkbox", value: ""}/
-              %label.form-check-label{for: "rememberPasswordCheck"}
-                Remember password
-            .d-grid
-              %button.btn.btn-primary.btn-login.text-uppercase.fw-bold{type: "submit"}
-                Sign
-                in
-            %hr.my-4/
-            .d-grid.mb-2
-              %button.btn.btn-google.btn-login.text-uppercase.fw-bold{type: "submit"}
-                %i.fab.fa-google.me-2
-                Sign in with Google
-            .d-grid
-              %button.btn.btn-facebook.btn-login.text-uppercase.fw-bold{type: "submit"}
-                %i.fab.fa-facebook-f.me-2
-                Sign in with Facebook
+%link#bootstrap-css{href: "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", rel: "stylesheet"}/
+%script{src: "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"}
+%script{src: "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
+/ ---- Include the above in your HEAD tag --------
+.wrapper.fadeInDown
+  #formContent
+    / Tabs Titles
+    / Icon
+    .fadeIn.first
+      %img#icon{alt: "User Icon", src: "http://danielzawadzki.com/codepen/01/icon.svg"}/
+    / Login Form
+    %form
+      %input#login.fadeIn.second{name: "login", placeholder: "login", type: "text"}/
+      %input#password.fadeIn.third{name: "login", placeholder: "password", type: "text"}/
+      %input.fadeIn.fourth{type: "submit", value: "Log In"}/
+    / Remind Passowrd
+    #formFooter
+      %a.underlineHover{href: "#"} Forgot Password?
                 
 %h2 Log in
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
