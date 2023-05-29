@@ -46,12 +46,15 @@
           %a.nav-link.active{"aria-current" => "page", href: "#"} Início
         -# %li.nav-item
         -#   %a.nav-link{href: "#"} Notifications
-        %li.nav-item
-          %a.nav-link{href: "#"} Minha Empresa
-        %li.nav-item
-          %a.nav-link{href: user_session_path} Login/Cadastro
-        %li.nav-item
-          = link_to "Sair", destroy_user_session_path, method: :delete, class: 'nav-link'
+        - if user_signed_in?
+          %li.nav-item
+            %a.nav-link{href: "#"} Minha Empresa
+        - unless user_signed_in?
+          %li.nav-item
+            %a.nav-link{href: user_session_path} Login/Cadastro
+        - if user_signed_in?
+          %li.nav-item
+            = link_to "Sair", destroy_user_session_path, method: :delete, class: 'nav-link'
         -# %li.nav-item
         -#   = link_to "Sair", destroy_user_session_path, method: :delete
         -# %li.nav-item
