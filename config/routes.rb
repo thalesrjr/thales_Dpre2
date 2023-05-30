@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'companies/new'
+  get 'companies/edit'
+  get 'companies/create'
+  get 'companies/update'
   devise_for :users
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
