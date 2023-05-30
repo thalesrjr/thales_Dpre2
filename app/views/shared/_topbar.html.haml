@@ -37,13 +37,13 @@
           %use{href: "#check2"}
 %nav.navbar.navbar-expand-lg.fixed-top.navbar-dark.bg-dark{"aria-label" => "Main navigation"}
   .container-fluid
-    %a.navbar-brand{href: "#"} Desempregando
+    %a.navbar-brand{href: root_path} Desempregando
     %button#navbarSideCollapse.navbar-toggler.p-0.border-0{"aria-label" => "Toggle navigation", type: "button"}
       %span.navbar-toggler-icon
     #navbarsExampleDefault.navbar-collapse.offcanvas-collapse
       %ul.navbar-nav.me-auto.mb-2.mb-lg-0
         %li.nav-item
-          %a.nav-link.active{"aria-current" => "page", href: "#"} Início
+          %a.nav-link.active{"aria-current" => "page", href: root_path} Início
         -# %li.nav-item
         -#   %a.nav-link{href: "#"} Notifications
         - if user_signed_in?
@@ -55,8 +55,6 @@
         - if user_signed_in?
           %li.nav-item
             = link_to "Sair", destroy_user_session_path, method: :delete, class: 'nav-link'
-        -# %li.nav-item
-        -#   = link_to "Sair", destroy_user_session_path, method: :delete
         -# %li.nav-item
         -#   %a.nav-link.active{"aria-current" => "page", :href => "#", class: 'btn btn-secondary' } Publicar Vaga
         -# %li.nav-item.dropdown
