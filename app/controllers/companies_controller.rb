@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = 'Não foi possível cadastrar a Empresa'
-      redirect_to root_path
+      render :new
     end
   end
 
@@ -31,6 +31,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :url)
+    params.require(:company).permit(:name, :url, :logo)
   end
 end
