@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: Desempregando_DPre_development
+  database: thales2_Dpre_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,7 +58,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: Desempregando_DPre_test
+  database: thales2_Dpre_test
 
   username: postgres
 
@@ -94,6 +94,6 @@ test:
 #
 production:
   <<: *default
-  database: Desempregando_DPre_production
-  username: Desempregando_DPre
-  password: <%= ENV['DESEMPREGANDO_DPRE_DATABASE_PASSWORD'] %>
+  database: thales2_Dpre_production
+  username: thales2_Dpre
+  password: <%= ENV['thales2_Dpre_DATABASE_PASSWORD'] %>

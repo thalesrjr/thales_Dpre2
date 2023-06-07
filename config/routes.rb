@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   resources :positions
   resources :companies, only: [:new, :edit, :create, :update]
   devise_for :users
+  
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   root 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get "/vaga/:slug", action: :public_position, controller: :positions, as: :public_position
 end
