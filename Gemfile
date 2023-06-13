@@ -37,7 +37,7 @@ gem 'html2haml'
 # gem 'kaminari'
 # gem 'kaminari-bootstrap'
 # Busca
-# gem 'ransack'
+gem 'ransack'
 # Melhorar select
 # gem 'select2-rails'
 
